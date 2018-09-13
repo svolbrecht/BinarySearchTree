@@ -21,6 +21,7 @@ namespace BinarySearchTree
             bst.AddNode(15);
 
             bst.SearchBST();
+            Console.ReadKey();
         }
     }
 }

@@ -38,11 +38,6 @@ namespace BinarySearchTree
                         else
                         {
                             currentNode = currentNode.left;
-
-                            if (currentNode.left == null)
-                            {
-                                currentNode.left = new Node(value);
-                            }
                         }
                     }
                     else
@@ -55,11 +50,6 @@ namespace BinarySearchTree
                         else
                         {
                             currentNode = currentNode.right;
-
-                            if (currentNode.right == null)
-                            {
-                                currentNode.right = new Node(value);
-                            }
                         }
                     }
                 }
@@ -83,27 +73,32 @@ namespace BinarySearchTree
                 {
                     if (searchValue < currentNode.data)
                     {
-                        if (searchValue == currentNode.left.data)
-                        {
-                            Console.WriteLine(currentNode.left.data);
-                        }
+                        currentNode = currentNode.left;
 
-                        else
+                        if (currentNode == null)
                         {
-                            currentNode = currentNode.left;
+                            Console.WriteLine("value not found");
+                            break;
                         }
-
+                        else if (searchValue == currentNode.data && currentNode != null)
+                        {
+                            Console.WriteLine(currentNode.data);
+                        }
                     }
                     else
                     {
-                        if (searchValue == currentNode.right.data)
+                        currentNode = currentNode.right;
+
+                        if (currentNode == null)
                         {
-                            Console.WriteLine(currentNode.right.data);
+                            Console.WriteLine("value not found");
+                            break;
                         }
-                        else
+                        else if (searchValue == currentNode.data)
                         {
-                            currentNode = currentNode.right;
+                            Console.WriteLine(currentNode.data);
                         }
+                  
                     }
                 }
             }
